@@ -1,8 +1,10 @@
+"use client";
 import Image from "next/image";
 import "./detail/panel/FeelingsCalendar.css";
 import Emoji from "@/components/Emoji";
 import Typography from "@/components/Typography";
 import { emojis } from "@/types/emojis";
+import React, { useEffect, useState } from "react";
 
 const data = [
   { day: "일", date: 22, emotion: 1 },
@@ -66,6 +68,16 @@ const CustomTile = ({ day, date, emotion = "no", isToday }) => {
 };
 
 export default function Home() {
+  const [emoji, setEmoji] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setEmoji((prevEmoji) => (prevEmoji + 1) % 7);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div
       style={{
@@ -102,7 +114,7 @@ export default function Home() {
             padding: "1rem 0",
           }}
         >
-          <Emoji emoji="happy" />
+          <Emoji emoji={emojis[emoji]} />
         </div>
         <Typography
           variant="title02"
