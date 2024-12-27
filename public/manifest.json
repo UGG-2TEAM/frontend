@@ -3,5 +3,8 @@
   "theme_color": "#000000",
   "background_color": "#000000",
   "short_name": "flicker",
-  "id": "감정기록"
+  "id": "감정기록",
+  "display": "standalone",
+  "start_url": "/"
+
 }
