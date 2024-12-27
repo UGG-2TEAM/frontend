@@ -1,98 +1,130 @@
-.allContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.allContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.imageBackgroundContainer{
-    margin-top: 20%;
-    display: flex;
-    flex-direction: column;
+.imageBackgroundContainer {
+  display: flex;
+  flex-direction: column;
 }
 
-.imageBackground{
-    width: 300px;
-    height: 450px;
-    background-color: var(--grayscale--gray04);
+.imageBackground {
+  width: 300px;
+  height: 450px;
+  background-color: var(--grayscale--gray04);
 }
 
-.image{
-    width: 300px;
-    height: 450px;
+.image {
+  width: 300px;
+  height: 450px;
 }
 
 .cameraButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-top: 50%;
-  }
-  
-  .cameraIcon {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .optionsContainer {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
-  
-  .optionButton {
-    padding: 3%;
-    width: 130px;
-    font-size: 16px;
-    background-color: var(--grayscale--gray04);
-    color: var(--grayscale--black);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .optionButton:hover {
-    background-color: var(--grayscale--gray05);
-  }
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-  .diaryContainer{
-    margin-top: 10%;
-  }
+.cameraIcon {
+  width: 80px;
+  height: 80px;
+}
 
-  .diaryButton{
-    padding: 5%;
-    width: 250px;
-    font-size: 18px;
-    background-color: var(--grayscale--gray03);
-    color: var(--grayscale--black);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.optionsContainer {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
 
-  .disabledButton {
-    background-color: var(--grayscale--gray03);
-    color: var(--grayscale--gray01);
-    cursor: not-allowed;
-  }
+.optionButton {
+  padding: 3%;
+  width: 130px;
+  font-size: 16px;
+  background-color: var(--grayscale--gray04);
+  color: var(--grayscale--black);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  .diaryButton:disabled {
-    cursor: not-allowed;
-  }
+.optionButton:hover {
+  background-color: var(--grayscale--gray05);
+}
 
-  .fileUploadContainer {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%; 
-    margin-top: 10px;
+.diaryContainer {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.diaryButton {
+  padding: 5%;
+  width: 260px;
+  text-align: center;
+  font-size: 18px;
+  background-color: var(--grayscale--gray03);
+  color: var(--grayscale--black);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.disabledButton {
+  background-color: var(--grayscale--gray03);
+  color: var(--grayscale--gray01);
+  cursor: not-allowed;
+}
+
+.diaryButton:disabled {
+  cursor: not-allowed;
+}
+
+.fileUploadContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 10px;
+  color: #ffffff;
 }
 
 .fileUploadButton {
-    background: none;
-    border: none;
-    color: var(--grayscale--black);
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: underline;
-    text-align: right;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: right;
+}
+
+
+.date {
+  font-size: 12px;
+  color: white;
+  margin-bottom: 5%;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  font-family: var(--font-geist-sans);
+  padding: 5%;
+  margin-top: 5%;
+}
+
+.textContainer {
+  display: flex;
+  font-size: 12px;
+  border-radius: 10px;
+  background-color: var(--grayscale--gray02);
+  width: 320px;
+  height: 40px;
+  margin-bottom: 10%;
+  align-items: center;
+  justify-content: center;
 }
