@@ -2,7 +2,7 @@ import React from "react";
 import Calendar from "react-calendar";
 import "./FeelingsCalendar.css";
 import dayjs from "dayjs";
-import Emoji from "./Emoji";
+import Emoji from "../../../components/Emoji";
 import { emojis } from "@/types/emojis";
 import Typography from "@/components/Typography";
 import { color } from "storybook/internal/theming";
