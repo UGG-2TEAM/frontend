@@ -8,6 +8,7 @@ import Image from "next/image";
 
 const Frame = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 관리
+  const [id, setId] = useState(1); // id 상태 관리
   const router = useRouter();
 
   const handleModalOpen = () => {
@@ -17,6 +18,31 @@ const Frame = () => {
   const handleModalClose = () => {
     setIsModalOpen(false); // 모달 닫기
     router.push("/");
+  };
+
+  // 감정일기 저장 API 호출
+  const saveDiary = async () => {
+    try {
+      const response = await fetch('/api/save-diary', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id }), // id를 request body에 포함
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save diary');
+      }
+
+      // 성공적으로 저장된 후 id 증가
+      setId((prevId) => prevId + 1); // id 1 증가
+      alert('감정일기가 저장되었습니다!');
+      handleModalClose();
+    } catch (error) {
+      console.error(error);
+      alert('감정일기 저장에 실패했습니다.');
+    }
   };
 
   return (
@@ -30,7 +56,7 @@ const Frame = () => {
       <div className={styles.buttonContainer}>
         <button
           className={styles.storageButton}
-          onClick={handleModalOpen} // 모달 열기 버튼 클릭 시
+          onClick={handleModalOpen}
         >
           감정일기 저장하기
         </button>

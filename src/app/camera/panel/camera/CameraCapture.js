@@ -7,8 +7,8 @@ import Image from "next/image";
 import axios from "axios"; // axios import
 
 const CameraCapture = () => {
-    const [image, setImage] = useState(null);
-    const [imageFile, setImageFile] = useState(null);
+    const [image, setImage] = useState(null); // 이미지 데이터 (Base64)
+    const [imageFile, setImageFile] = useState(null); // 이미지 파일
     const fileInputRef = useRef(null);
     const router = useRouter();
     const API_URL = "http://52.79.145.98:3000";
@@ -39,7 +39,7 @@ const CameraCapture = () => {
 
                     // 찍은 이미지를 data URL로 변환 후 상태 업데이트
                     const imageData = canvas.toDataURL("image/png");
-                    setImage(imageData);
+                    setImage(imageData); // 이미지 Base64 데이터 저장
 
                     // 비디오 스트림 정지
                     stream.getTracks().forEach((track) => track.stop());
@@ -57,16 +57,16 @@ const CameraCapture = () => {
             setImageFile(file);
             const reader = new FileReader();
             reader.onloadend = () => {
-                setImage(reader.result);
+                setImage(reader.result); // 파일을 Base64로 읽어 image 상태에 저장
             };
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(file); // 파일을 Base64로 변환
         }
     };
 
     // 감정 일기 버튼 클릭 시 이미지 저장 및 이동
     const handleDiaryClick = () => {
         if (image) {
-            localStorage.setItem("capturedImage", image);
+            localStorage.setItem("capturedImage", image); // Base64 이미지 저장
             uploadImage(image); // 이미지 업로드 함수 호출
         }
         router.push("/camera/frame");
@@ -75,34 +75,36 @@ const CameraCapture = () => {
     // 이미지 업로드 및 user_id 처리
     const uploadImage = async (imageData) => {
         try {
-            // const userId = incrementUserId(); // userId 증가 후 사용
-
-    
-            const formData = new FormData();
-            formData.append("file", imageFile);
-    
-            // API 호출 (이미지와 user_id를 서버로 전송)
-            const response = await axios.post(`${API_URL}/emotion_predict`, formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
+            const response = await axios.post(
+                `${API_URL}/emotion_predict_base64`, 
+                {
+                    user_id: 1,
+                    image_base64: imageData, // Base64 이미지 데이터 전달
                 },
-                params: {
-                    user_id: 1
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
                 }
-            });
+            );
     
             if (response.status === 200) {
                 console.log("이미지 업로드 성공", response.data);
             }
         } catch (error) {
-            console.error(error);
-            alert("다른 이미지를 사용해주세요", error);
+            console.error("이미지 업로드 실패:", error);
+            alert("다른 이미지를 사용해주세요.", error);
         }
     };
     
 
     return (
         <div className={styles.allContainer}>
+            <p className={styles.title}>오늘의 나</p>
+            <p className={styles.date}>2024.12.28.</p>
+            <div className={styles.textContainer}>
+                <p>사진을 찍으면 오늘 나의 감정이 분석돼요!</p>
+            </div>
             <div className={styles.imageBackgroundContainer}>
                 {!image && <div className={styles.imageBackground} />}
                 {image && (
