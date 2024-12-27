@@ -29,3 +29,4 @@
 |app/\*\*/panel|page와 layout 제외 컴포넌트들|
 |styles|css style을 정의하기 위한 폴더 (module.css)|
 |.env|환경설정을 위한 폴더|
+|stories|스토리북을 모아두는 폴더|

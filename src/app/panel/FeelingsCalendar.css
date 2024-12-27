@@ -1,0 +1,129 @@
+.react-calendar__tile {
+  background-color: transparent;
+  cursor: not-allowed;
+  border: 0;
+}
+
+.react-calendar__tile:hover {
+  background-color: transparent;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  display: none; /* 숨기기 */
+}
+
+.react-calendar__tile--active {
+  background-color: transparent !important;
+  color: #ffffff;
+}
+
+.react-calendar__month-view__weekdays {
+  color: #000;
+  text-align: center;
+  align-self: stretch;
+  /* body/body04 */
+  font-family: Pretendard;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25rem; /* 166.667% */
+  letter-spacing: -0.0225rem;
+  margin-bottom: 0.75rem;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+.react-calendar {
+  gap: 1.375rem;
+  border-radius: 0.5rem;
+  background-color: transparent;
+}
+
+.react-calendar__navigation button:disabled {
+  width: fit-content;
+  flex-grow: 0 !important;
+  background-color: transparent;
+  cursor: not-allowed;
+  text-align: center;
+  font-feature-settings: "liga" off, "clig" off;
+  border: none;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: -0.03rem;
+  color: var(--grayscale--black);
+  padding: 0;
+}
+
+.react-calendar__navigation {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9375rem 0;
+}
+
+.react-calendar__navigation__label {
+  width: fit-content;
+}
+
+.react-calendar__navigation__prev-button {
+  border: none;
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.react-calendar__navigation__prev-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+.react-calendar__navigation__next-button {
+  border: none;
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.react-calendar__navigation__next-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.125rem;
+  width: 1.125rem;
+  border-radius: 100%;
+}
+.date p {
+  color: var(--grayscale-gray08, #636267);
+  text-align: center;
+  display: inline-block;
+  height: "0.0625rem";
+}
