@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
-import Emoji from "@/app/panel/Emoji";
+import Emoji from "@/components/Emoji";
 
 /** @type {Meta} */
 const meta = {

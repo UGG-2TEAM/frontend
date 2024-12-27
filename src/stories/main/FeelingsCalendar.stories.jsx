@@ -1,5 +1,5 @@
 import React from "react";
-import FeelingsCalendar from "@/app/panel/FeelingsCalendar";
+import FeelingsCalendar from "@/app/detail/panel/FeelingsCalendar";
 
 const meta = {
   title: "main/FeelingsCalendar",
