@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+import withPWA from "next-pwa";
 
-export default nextConfig;
+const nextConfig = {
+  reactStrictMode: true, // Next.js의 기본 옵션
+};
+
+export default withPWA({
+  ...nextConfig,
+  pwa: {
+    dest: "public", // manifest.json과 서비스 워커 파일 위치
+    register: true,
+    skipWaiting: true,
+  },
+});
