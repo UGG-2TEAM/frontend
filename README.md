@@ -17,3 +17,15 @@
 |🚀|Deploy|Deploying stuff|
 |🔄️|Rename|파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우|
 |🪚|Remove|파일을 삭제하는 작업만 수행한 경우|
+
+### 폴더 구조
+
+|Title|Description|
+|-|-|
+|assets|폰트, 이미지를 위한 폴더|
+|components|컴포넌트들 파일들을 위한 폴더|
+|hooks|커스텀 훅(함수)을 위한 폴더|
+|app| 엡디랙토리 활용|
+|app/\*\*/panel|page와 layout 제외 컴포넌트들|
+|styles|css style을 정의하기 위한 폴더 (module.css)|
+|.env|환경설정을 위한 폴더|
