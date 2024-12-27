@@ -2,9 +2,14 @@
 import Typography from "@/components/Typography";
 import React from "react";
 import FeelingsCalendar from "./panel/FeelingsCalendar";
-import { color } from "storybook/internal/theming";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
+
+  const handleReturn = () => {
+    router.back();
+  };
   return (
     <div
       style={{
@@ -27,20 +32,23 @@ const Page = () => {
           boxSizing: "border-box",
         }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M15 6.75L9 12.75L15 18.75"
-            stroke="white"
-            strokeWidth="1.323"
-            strokeLinecap="square"
-          />
-        </svg>
+        <button onClick={handleReturn}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M15 6.75L9 12.75L15 18.75"
+              stroke="white"
+              strokeWidth="1.323"
+              strokeLinecap="square"
+            />
+          </svg>
+        </button>
+
         <Typography
           variant="subtitle01"
           style={{
