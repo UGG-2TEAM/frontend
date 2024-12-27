@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Emoji = ({ emoji = "no", className }) => {
+const Emoji = ({ emoji = "no", className, style }) => {
   let src = "/emoji/no.svg";
 
   if (emoji === "angry") {
@@ -20,7 +20,7 @@ const Emoji = ({ emoji = "no", className }) => {
     src = "/emoji/surprise.svg";
   }
 
-  return <img src={src} alt={emoji} className={className} />;
+  return <img src={src} alt={emoji} className={className} style={style} />;
 };
 
 export default Emoji;

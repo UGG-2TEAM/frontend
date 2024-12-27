@@ -6,13 +6,13 @@ const Typography = ({
   component = "p",
   children,
   className = "",
-  styles = {},
+  style = {},
 }) => {
   const Component = component;
   const typographyClass = `${styles[variant]} ${className}`.trim();
   console.log(typographyClass);
   return (
-    <Component className={typographyClass} style={styles}>
+    <Component className={typographyClass} style={style}>
       {children}
     </Component>
   );
