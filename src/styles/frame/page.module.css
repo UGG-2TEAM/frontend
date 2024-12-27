@@ -1,0 +1,224 @@
+.allContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date {
+    margin-top: 20%;
+    font-size: 12px;
+}
+
+.textContainer {
+    font-size: 12px;
+    border-radius: 10px;
+    background-color: var(--grayscale--gray02);
+    width: 320px;
+    height: 40px;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+.imgContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.image {
+    width: 320px;
+    height: 460px;
+}
+
+.buttonContainer {
+    margin-top: 10%;
+}
+
+.frameImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.card {
+    width: 320px;
+    height: 460px;
+    perspective: 1000px;
+    /* 3D 회전 시점 */
+    position: relative;
+}
+
+.cardInner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    /* 3D 회전 효과 */
+    transition: transform 0.6s ease-in-out;
+    /* 회전 애니메이션 */
+}
+
+.card.flipped .cardInner {
+    transform: rotateY(180deg);
+    /* 뒤집힌 상태 */
+}
+
+.cardFront,
+.cardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* 뒷면 숨김 */
+}
+
+.cardFront {
+    background: white;
+    /* 앞면 색상 */
+    z-index: 1;
+    /* 앞면 우선순위 */
+}
+
+.cardBack {
+    background: lightgray;
+    /* 뒷면 색상 */
+    transform: rotateY(180deg);
+    /* 뒷면 기본 상태 */
+}
+
+.blurImage {
+    filter: blur(10px);
+    width: 320px;
+    height: 460px;
+}
+
+.blurFrameImg {
+    filter: blur(10px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.diaryTextContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+    text-align: center;
+    
+  }
+
+
+  .diaryInput {
+    width: 100%;
+    height: 500px;
+    padding: 10px;
+    border: none;
+    background-image: linear-gradient(transparent calc(100% - 2px), #fff 2px);
+    background-size: 100% 70px; /* Controls the space between lines */
+    line-height: 70px; /* Should match background-size */
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    box-sizing: border-box;
+    resize: none;
+    min-height: 80px;
+    overflow-y: auto;
+    -webkit-background-clip: text; /* For better rendering */
+  }
+  
+  .diaryInput::placeholder {
+    color: #ccc;
+    line-height: 70px; /* Match the line height */
+  }
+  
+  .diaryInput:focus {
+    background-image: linear-gradient(transparent calc(100% - 2px), rgba(255, 255, 255, 0.8) 2px);
+  }
+
+  .storageButton{
+    width: 320px;
+    height: 54px;
+    background-color: var(--grayscale--gray01);
+    color: black;
+    font-size: 16px;
+    border-radius: 15px;
+    border: none;
+  }
+
+  .storageButton:hover {
+    background-color: var(--grayscale--gray03);
+  }
+
+
+  /* 모달 오버레이 */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* 모달 콘텐츠 */
+  .modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 모달 버튼 스타일 */
+  .modalButtons {
+    margin-top: 20px;
+  }
+  
+  .saveButton,
+  .cancelButton {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .saveButton {
+    background-color: #000;
+    color: white;
+    width: 125px;
+    height: 44px;
+}
+
+  /* p 태그 스타일 */
+.modalContent p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 10px; /* p 태그 사이에 여백 추가 */
+  }
+  
+  /* 쌍따옴표 안의 텍스트 크기 키우기 */
+  .highlightText {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
