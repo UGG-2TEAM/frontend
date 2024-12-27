@@ -4,23 +4,52 @@ import "./FeelingsCalendar.css";
 import dayjs from "dayjs";
 import Emoji from "./Emoji";
 import { emojis } from "@/types/emojis";
+import Typography from "@/components/Typography";
+import { color } from "storybook/internal/theming";
 
 const data = [
   { date: 1, emotion: 1 },
   { date: 2, emotion: 2 },
 ];
 
-const CustomTile = ({ date, emotion = "no" }) => {
+const CustomTile = ({ date, emotion = "no", isToday }) => {
   const day = date.getDate(); // 날짜 가져오기
-  return <Emoji emoji={emotion} />;
+  return (
+    <div className="date">
+      <Emoji emoji={emotion} />
+      <div
+        className="day"
+        style={
+          isToday
+            ? {
+                color: "var(--grayscale-white, #fff) !important",
+                backgroundColor: "var(--grayscale-gray11, #2c2c2e)",
+              }
+            : {}
+        }
+      >
+        <Typography
+          variant="caption02"
+          component="p"
+          styles={{
+            color: isToday
+              ? "var(--grayscale-white, #fff) !important"
+              : "var(--grayscale-gray08, #636267)",
+          }}
+        >
+          {day}
+        </Typography>
+      </div>
+    </div>
+  );
 };
 
 const FeelingsCalendar = () => {
-  const date = dayjs().toString();
+  const today = dayjs().toString();
 
   return (
     <Calendar
-      value={date}
+      value={today}
       locale={"ko-KR"}
       calendarType={"gregory"}
       defaultView="month"
@@ -57,13 +86,14 @@ const FeelingsCalendar = () => {
       prev2Label={null}
       tileContent={({ date, view }) => {
         let emotion = "no";
+        const isToday = dayjs().isSame(date, "date");
         const target = data.find((item) => item.date === date.getDate());
         if (target) {
           emotion = emojis[target.emotion - 1];
           console.log(emotion);
         }
         if (view === "month") {
-          return <CustomTile date={date} emotion={emotion} />;
+          return <CustomTile date={date} emotion={emotion} isToday={isToday} />;
         }
         return null;
       }}

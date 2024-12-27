@@ -6,11 +6,16 @@ const Typography = ({
   component = "p",
   children,
   className = "",
+  styles = {},
 }) => {
   const Component = component;
   const typographyClass = `${styles[variant]} ${className}`.trim();
-
-  return <Component className={typographyClass}>{children}</Component>;
+  console.log(typographyClass);
+  return (
+    <Component className={typographyClass} style={styles}>
+      {children}
+    </Component>
+  );
 };
 
 export default Typography;

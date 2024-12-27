@@ -104,3 +104,26 @@ abbr[title] {
   width: 100%;
   height: 100%;
 }
+
+.date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.125rem;
+  width: 1.125rem;
+  border-radius: 100%;
+}
+.date p {
+  color: var(--grayscale-gray08, #636267);
+  text-align: center;
+  display: inline-block;
+  height: "0.0625rem";
+}
