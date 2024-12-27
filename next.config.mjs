@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 import withPWA from "next-pwa";
 
-const nextConfig = {
-  reactStrictMode: true, // Next.js의 기본 옵션
-};
+const nextConfig = {};
 
 export default withPWA({
   ...nextConfig,
