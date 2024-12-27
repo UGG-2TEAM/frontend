@@ -2,6 +2,7 @@
 import Typography from "@/components/Typography";
 import React from "react";
 import FeelingsCalendar from "./panel/FeelingsCalendar";
+import { color } from "storybook/internal/theming";
 
 const Page = () => {
   return (
@@ -57,7 +58,37 @@ const Page = () => {
           fill="none"
         />
       </div>
-      <FeelingsCalendar />
+      <div
+        style={{
+          padding: "0 1.25rem",
+        }}
+      >
+        <FeelingsCalendar />
+        <button
+          style={{
+            marginTop: "1.5rem",
+            display: "flex",
+            width: "100%",
+            height: "40px",
+            backgroundColor: "#fff",
+            justifyContent: "center",
+            alignItems: "center",
+            boxSizing: "border-box",
+            borderRadius: "0.5rem",
+            padding: "10px 0",
+          }}
+        >
+          <Typography
+            variant="button05"
+            style={{
+              color: "var(--grayscale-gray12, #1C1C1E)",
+              textAlign: "center",
+            }}
+          >
+            원하는 날짜를 클릭해 그날의 감정 카드를 확인해 보세요!
+          </Typography>
+        </button>
+      </div>
     </div>
   );
 };
