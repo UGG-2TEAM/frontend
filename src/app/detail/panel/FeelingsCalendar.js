@@ -3,16 +3,60 @@ import Calendar from "react-calendar";
 import "./FeelingsCalendar.css";
 import dayjs from "dayjs";
 import Emoji from "../../../components/Emoji";
-import { emojis } from "@/types/emojis";
+// import { emojis } from "@/types/emojis";
 import Typography from "@/components/Typography";
+// import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const data = [
-  { date: 1, emotion: 1 },
-  { date: 2, emotion: 2 },
+  { diaryId: 1, emotion: "angry", date: 1 },
+  { diaryId: 2, emotion: "happy", date: 2 },
+  { diaryId: 3, emotion: "neutral", date: 3 },
+  { diaryId: 4, emotion: "sad", date: 4 },
+  { diaryId: 5, emotion: "fear", date: 5 },
+  { diaryId: 6, emotion: "surprise", date: 6 },
+  { diaryId: 7, emotion: "angry", date: 7 },
+  { diaryId: 8, emotion: "disgust", date: 8 },
+  { diaryId: 9, emotion: "happy", date: 9 },
+  { diaryId: 10, emotion: "neutral", date: 10 },
+  { diaryId: 11, emotion: "sad", date: 11 },
+  { diaryId: 12, emotion: "fear", date: 12 },
+  { diaryId: 13, emotion: "angry", date: 13 },
+  { diaryId: 14, emotion: "happy", date: 14 },
+  { diaryId: 15, emotion: "neutral", date: 15 },
+  { diaryId: 16, emotion: "sad", date: 16 },
+  { diaryId: 17, emotion: "fear", date: 17 },
+  { diaryId: 18, emotion: "surprise", date: 18 },
+  { diaryId: 19, emotion: "angry", date: 19 },
+  { diaryId: 20, emotion: "disgust", date: 20 },
+  { diaryId: 21, emotion: "happy", date: 21 },
+  { diaryId: 22, emotion: "neutral", date: 22 },
+  { diaryId: 23, emotion: "sad", date: 23 },
+  { diaryId: 24, emotion: "fear", date: 24 },
+  { diaryId: 25, emotion: "angry", date: 25 },
+  { diaryId: 26, emotion: "surprise", date: 26 },
+  { diaryId: 27, emotion: "happy", date: 27 },
 ];
 
+export async function fetchDiaryList() {
+  const response = await axios.get(
+    `${process.env.NEXT_PUBLIC_BACK_API_URL}/api/v1/diary/list`,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      params: {
+        year: 2024,
+        month: 12,
+      },
+    }
+  );
+  return response.data.diaryList; // 응답 데이터 반환
+}
+
 const CustomTile = ({ date, emotion = "no", isToday }) => {
-  const day = date.getDate(); // 날짜 가져오기
+  const day = date.getDate();
+
   return (
     <div className="date">
       <Emoji emoji={emotion} />
@@ -42,6 +86,17 @@ const CustomTile = ({ date, emotion = "no", isToday }) => {
 
 const FeelingsCalendar = () => {
   const today = dayjs().toString();
+
+  // const { data, isLoading, error } = useQuery({
+  //   queryKey: ["diaryList"], // 쿼리 키
+  //   queryFn: fetchDiaryList, // 데이터를 가져오는 함수
+  // });
+
+  // if (isLoading) return <p>Loading...</p>;
+  // if (error) {
+  //   console.error(error);
+  //   return <p>Error: {error.message}</p>;
+  // }
 
   return (
     <Calendar
@@ -85,7 +140,7 @@ const FeelingsCalendar = () => {
         const isToday = dayjs().isSame(date, "date");
         const target = data.find((item) => item.date === date.getDate());
         if (target) {
-          emotion = emojis[target.emotion - 1];
+          emotion = target.emotion;
           console.log(emotion);
         }
         if (view === "month") {
