@@ -5,6 +5,7 @@ import Emoji from "@/components/Emoji";
 import Typography from "@/components/Typography";
 import { emojis } from "@/types/emojis";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const data = [
   { day: "일", date: 22, emotion: 1 },
@@ -69,6 +70,24 @@ const CustomTile = ({ day, date, emotion = "no", isToday }) => {
 
 export default function Home() {
   const [emoji, setEmoji] = useState(1);
+
+  const router = useRouter();
+
+  const handleDetailClick = () => {
+    router.push("/detail");
+  };
+
+  const handleTodayClick = () => {
+    router.push("/camera");
+  };
+
+  const handleTomorrowClick = () => {
+    router.push("/letter");
+  };
+
+  const handleChartClick = () => {
+    router.push("/chart");
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -154,14 +173,15 @@ export default function Home() {
             </Typography>
             <Typography
               variant="caption02"
-              component="button"
+              component="div"
               style={{
                 color: "var(--grayscale-white, #FFF)",
                 textAlign: "right",
                 backgroundColor: "transparent",
               }}
             >
-              <div
+              <button
+                onClick={handleDetailClick}
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -183,10 +203,11 @@ export default function Home() {
                     strokeLinecap="square"
                   />
                 </svg>
-              </div>
+              </button>
             </Typography>
           </div>
           <button
+            onClick={handleDetailClick}
             style={{
               width: "100%",
               height: "fit-content",
@@ -220,6 +241,7 @@ export default function Home() {
             }}
           >
             <button
+              onClick={handleTodayClick}
               style={{
                 width: "100%",
                 borderRadius: "0.75rem",
@@ -268,6 +290,7 @@ export default function Home() {
                 boxSizing: "border-box",
                 backgroundColor: "var(--grayscale-white, #FFF)",
               }}
+              onClick={handleTomorrowClick}
             >
               <div
                 style={{
@@ -303,6 +326,7 @@ export default function Home() {
             </button>
           </div>
           <button
+            onClick={handleChartClick}
             style={{
               width: "100%",
               borderRadius: "0.75rem",
@@ -332,7 +356,7 @@ export default function Home() {
                     textAlign: "left",
                   }}
                 >
-                  오늘의 감정을 기록해보세요
+                  이번 달 내 감정은 어땠을까?
                 </Typography>
                 <Typography
                   variant="title03"
@@ -342,7 +366,7 @@ export default function Home() {
                     textAlign: "left",
                   }}
                 >
-                  감정 기록하기
+                  12월 감정 분포 보러가기
                 </Typography>
               </div>
               <img src={"/chart.png"} aria-hidden />
