@@ -1,17 +1,15 @@
-.react-calendar__tile:disabled {
+.react-calendar__tile {
   background-color: transparent;
-  color: #4a5660;
   cursor: not-allowed;
+  border: 0;
 }
 
 .react-calendar__tile:hover {
   background-color: transparent;
 }
 
-.react-calendar__tile {
-  aspect-ratio: 1;
-  font-family: "KoPub Batang";
-  padding: 0.25rem;
+.react-calendar__month-view__days__day--neighboringMonth {
+  display: none; /* 숨기기 */
 }
 
 .react-calendar__tile--active {
@@ -19,29 +17,18 @@
   color: #ffffff;
 }
 
-.react-calendar__tile--active abbr {
-  background-color: #ffb19f;
-  color: #ffffff;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .react-calendar__month-view__weekdays {
-  color: #828282;
+  color: #000;
   text-align: center;
-  font-feature-settings: "liga" off, "clig" off;
-  font-family: "KoPub Batang";
-  font-size: 0.625rem;
+  align-self: stretch;
+  /* body/body04 */
+  font-family: Pretendard;
+  font-size: 0.75rem;
   font-style: normal;
-  font-weight: 400;
-  line-height: 0.75rem; /* 120% */
-  letter-spacing: 0.09375rem;
-  text-transform: uppercase;
-  margin-bottom: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25rem; /* 166.667% */
+  letter-spacing: -0.0225rem;
+  margin-bottom: 0.75rem;
 }
 
 abbr[title] {
@@ -49,27 +36,71 @@ abbr[title] {
 }
 
 .react-calendar {
-  padding: 1.5rem;
   gap: 1.375rem;
   border-radius: 0.5rem;
-  border: 2px #ffc9bd solid;
   background-color: transparent;
 }
 
 .react-calendar__navigation button:disabled {
+  width: fit-content;
+  flex-grow: 0 !important;
   background-color: transparent;
   cursor: not-allowed;
   text-align: center;
   font-feature-settings: "liga" off, "clig" off;
   border: none;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: -0.03rem;
+  color: var(--grayscale--black);
+  padding: 0;
 }
 
 .react-calendar__navigation {
-  gap: 0.75rem;
   height: fit-content;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9375rem 0;
 }
 
 .react-calendar__navigation__label {
   width: fit-content;
+}
+
+.react-calendar__navigation__prev-button {
+  border: none;
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.react-calendar__navigation__prev-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+.react-calendar__navigation__next-button {
+  border: none;
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.react-calendar__navigation__next-button svg {
+  width: 100%;
+  height: 100%;
 }
