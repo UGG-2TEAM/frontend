@@ -77,7 +77,6 @@ const Page = () => {
             marginTop: "1.5rem",
             display: "flex",
             width: "100%",
-            height: "40px",
             backgroundColor: "#fff",
             justifyContent: "center",
             alignItems: "center",
